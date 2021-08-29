@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">weather-avito</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="w_degree">+29°</string>
-    <string name="w_location">Moscow</string>
+    <string name="w_degree">%d°</string>
+    <string name="w_location">%s</string>
+    <string name="w_humidity">%s</string>
+    <string name="w_pressure">%d hPa</string>
+    <string name="w_wind_v">%d м/с</string>
 </resources>
