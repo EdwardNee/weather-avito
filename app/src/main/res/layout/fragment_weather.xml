@@ -4,7 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeatherFragment">
+    tools:context=".views.WeatherFragment">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_search_loc"
+        style="@style/Widget.Design.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:endIconDrawable="@drawable/search_24"
+        app:endIconMode="custom"
+        app:layout_constraintBottom_toBottomOf="@id/w_location"
+        app:layout_constraintEnd_toStartOf="@id/r_gl"
+        app:layout_constraintStart_toEndOf="@id/l_gl"
+        app:layout_constraintTop_toTopOf="@id/w_location">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:textSize="14sp"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/w_degrees"
@@ -190,6 +210,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="16dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

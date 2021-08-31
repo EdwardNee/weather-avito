@@ -3,11 +3,11 @@ package com.nieduard.weather_avito.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Sys(
+data class CityX(
+    val coord: Coord,
     val country: String,
     val id: Int,
-    val message: Double,
-    val sunrise: Int,
-    val sunset: Int,
-    val type: Int
+    val name: String,
+    val population: Int,
+    val timezone: Int
 )
