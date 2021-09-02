@@ -4,15 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.nieduard.weather_avito.viewmodels.IShowToast
-import com.nieduard.weather_avito.views.IOpenNewCityFragment
+import com.nieduard.weather_avito.utils.IShowToast
 import com.nieduard.weather_avito.views.WeatherFragment
 
 enum class FragmentSwitch {
     REPLACE, ADD
 }
 
-class MainActivity : AppCompatActivity(), IOpenNewCityFragment, IShowToast {
+class MainActivity : AppCompatActivity(), IShowToast {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -44,11 +43,7 @@ class MainActivity : AppCompatActivity(), IOpenNewCityFragment, IShowToast {
         }
     }
 
-    override fun onOpenNewCityFragment() {
-        moveToFragment(NewCityFragment(), FragmentSwitch.ADD)
-    }
-
-    override fun onShowToast() {
-        Toast.makeText(this, "haha", Toast.LENGTH_LONG).show()
+    override fun onShowToast(message: String, length: Int) {
+        Toast.makeText(this, message, length).show()
     }
 }

@@ -2,7 +2,7 @@ package com.nieduard.weather_avito.modelfactories
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.nieduard.weather_avito.viewmodels.IShowToast
+import com.nieduard.weather_avito.utils.IShowToast
 import com.nieduard.weather_avito.viewmodels.WeatherViewModel
 import java.lang.IllegalArgumentException
 

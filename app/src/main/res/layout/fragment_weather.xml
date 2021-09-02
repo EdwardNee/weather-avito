@@ -146,56 +146,67 @@
         app:layout_constraintTop_toBottomOf="@id/w_4" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintStart_toStartOf="@id/l_gl"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/w3_info">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_weight="4"-->
+<!--                android:text="Sunday, 16"-->
+<!--                android:textSize="18sp" />-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_weight="1"-->
+<!--                android:src="@drawable/location_on_24" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center"-->
+<!--                android:text="+26°"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center"-->
+<!--                android:text="+26°"-->
+<!--                android:textSize="18sp" />-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+<!--    -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_forecast"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:orientation="vertical"
+        android:layout_width="0dp"
         app:layout_constraintStart_toStartOf="@id/l_gl"
-        app:layout_constraintTop_toBottomOf="@id/w3_info">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="4"
-                android:text="Sunday, 16"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:src="@drawable/location_on_24" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="+26°"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="+26°"
-                android:textSize="18sp" />
-        </LinearLayout>
-    </LinearLayout>
+        app:layout_constraintEnd_toEndOf="@id/r_gl"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/w_1_info"
+        android:layout_marginTop="30dp"
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/l_gl"

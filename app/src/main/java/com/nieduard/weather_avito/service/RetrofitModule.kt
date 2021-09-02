@@ -4,6 +4,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
+/**
+ * Module class, that helps to deal with weather API through [Retrofit].
+ */
 class RetrofitModule {
     companion object {
         const val API_KEY = "API_KEY"
