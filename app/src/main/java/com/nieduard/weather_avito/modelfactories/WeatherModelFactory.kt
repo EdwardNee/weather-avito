@@ -6,7 +6,7 @@ import com.nieduard.weather_avito.utils.IShowToast
 import com.nieduard.weather_avito.viewmodels.WeatherViewModel
 import java.lang.IllegalArgumentException
 
-class WeatherModelFactory(private val listener: IShowToast) : ViewModelProvider.Factory {
+class WeatherModelFactory(private val listener: IShowToast?) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T = when (modelClass) {
         WeatherViewModel::class.java -> WeatherViewModel(listener)
         else -> throw IllegalArgumentException("$modelClass is not registered")

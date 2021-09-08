@@ -1,22 +1,30 @@
 package com.nieduard.weather_avito.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.nieduard.weather_avito.R
+import com.nieduard.weather_avito.databinding.ViewHolderWeatherBinding
 import com.nieduard.weather_avito.model.Lst
 import com.nieduard.weather_avito.utils.TimeHelper
 import kotlin.math.roundToInt
 
 class ForecastAdapter : ListAdapter<Lst, ForecastViewHolder>(ForecastDiffCallback()) {
+    private var layoutInflater: LayoutInflater? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForecastViewHolder {
-        return ForecastViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.view_holder_weather, parent, false)
-        )
+        if (layoutInflater == null)
+            layoutInflater = LayoutInflater.from(parent.context)
+
+        val holderBinding: ViewHolderWeatherBinding =
+            DataBindingUtil.inflate(layoutInflater!!, R.layout.view_holder_weather, parent, false)
+
+        Log.d("TAG_HOLDER", holderBinding.toString())
+        return ForecastViewHolder(holderBinding)
     }
 
     override fun onBindViewHolder(holder: ForecastViewHolder, position: Int) {
@@ -25,23 +33,22 @@ class ForecastAdapter : ListAdapter<Lst, ForecastViewHolder>(ForecastDiffCallbac
     }
 }
 
-
-class ForecastViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val date: TextView = itemView.findViewById(R.id.holder_date)
-    private val temp: TextView = itemView.findViewById(R.id.holder_degree)
+class ForecastViewHolder(private val holderBinding: ViewHolderWeatherBinding) :
+    RecyclerView.ViewHolder(holderBinding.root) {
 
     fun onBind(item: Lst) {
-//        val context = itemView.context
-        date.text = TimeHelper.CITY_OFFSET?.let {
-            TimeHelper.dateFromUnix(item.dt,
-                it, "dd MMM, EEE")
+        holderBinding.holderDate.text = TimeHelper.CITY_OFFSET?.let {
+            TimeHelper.dateFromUnix(
+                item.dt,
+                it, "dd MMM, EEE"
+            )
         }
-        temp.text = (item.temp.day - 273.15).roundToInt().toString()
+        holderBinding.holderDegree.text = (item.temp.day - 273.15).roundToInt().toString()
     }
 }
 
 /**
- * Callback class for updating difference data of Actors.
+ * Callback class for updating difference data of forecast.
  */
 class ForecastDiffCallback : DiffUtil.ItemCallback<Lst>() {
     override fun areItemsTheSame(oldItem: Lst, newItem: Lst): Boolean {

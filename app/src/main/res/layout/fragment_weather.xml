@@ -1,225 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".views.WeatherFragment">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.WeatherFragment">
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_search_loc"
-        style="@style/Widget.Design.TextInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:endIconDrawable="@drawable/search_24"
-        app:endIconMode="custom"
-        app:layout_constraintBottom_toBottomOf="@id/w_location"
-        app:layout_constraintEnd_toStartOf="@id/r_gl"
-        app:layout_constraintStart_toEndOf="@id/l_gl"
-        app:layout_constraintTop_toTopOf="@id/w_location">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_search_loc"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:endIconDrawable="@drawable/search_24"
+            app:endIconMode="custom"
+            app:layout_constraintBottom_toBottomOf="@id/w_location"
+            app:layout_constraintEnd_toStartOf="@id/r_gl"
+            app:layout_constraintStart_toEndOf="@id/l_gl"
+            app:layout_constraintTop_toTopOf="@id/w_location">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:textSize="14sp"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:textSize="14sp"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/w_degrees"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/w_degree"
-        android:textSize="60sp"
-        app:layout_constraintStart_toStartOf="@id/l_gl"
-        app:layout_constraintTop_toBottomOf="@id/w_location" />
+        <TextView
+            android:id="@+id/w_degrees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="@string/w_degree"
+            android:textSize="60sp"
+            app:layout_constraintStart_toStartOf="@id/l_gl"
+            app:layout_constraintTop_toBottomOf="@id/w_location" />
 
-    <TextView
-        android:id="@+id/w_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="26 aug / 2.35 am"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@id/r_gl"
-        app:layout_constraintStart_toStartOf="@id/l_gl"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/w_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="26 aug / 2.35 am"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/r_gl"
+            app:layout_constraintStart_toStartOf="@id/l_gl"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/w_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/w_location"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:drawableLeftCompat="@drawable/location_on_24"
-        app:layout_constraintEnd_toEndOf="@id/w_time"
-        app:layout_constraintStart_toStartOf="@id/w_time"
-        app:layout_constraintTop_toBottomOf="@id/w_time" />
+        <TextView
+            android:id="@+id/w_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/w_location"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/location_on_24"
+            app:layout_constraintEnd_toEndOf="@id/w_time"
+            app:layout_constraintStart_toStartOf="@id/w_time"
+            app:layout_constraintTop_toBottomOf="@id/w_time" />
 
-    <!--Headers-->
-    <TextView
-        android:id="@+id/w_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Ветер"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@id/w_2"
-        app:layout_constraintStart_toStartOf="@id/l_gl"
-        app:layout_constraintTop_toBottomOf="@id/w_degrees" />
+        <!--Headers-->
+        <TextView
+            android:id="@+id/w_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Ветер"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/w_2"
+            app:layout_constraintStart_toStartOf="@id/l_gl"
+            app:layout_constraintTop_toBottomOf="@id/w_degrees" />
 
-    <TextView
-        android:id="@+id/w_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Влажность"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@id/w_3"
-        app:layout_constraintStart_toEndOf="@id/w_1"
-        app:layout_constraintTop_toBottomOf="@id/w_degrees" />
+        <TextView
+            android:id="@+id/w_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Влажность"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/w_3"
+            app:layout_constraintStart_toEndOf="@id/w_1"
+            app:layout_constraintTop_toBottomOf="@id/w_degrees" />
 
-    <TextView
-        android:id="@+id/w_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Давление"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@id/w_4"
-        app:layout_constraintStart_toEndOf="@id/w_2"
-        app:layout_constraintTop_toBottomOf="@id/w_degrees" />
+        <TextView
+            android:id="@+id/w_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Давление"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/w_4"
+            app:layout_constraintStart_toEndOf="@id/w_2"
+            app:layout_constraintTop_toBottomOf="@id/w_degrees" />
 
-    <TextView
-        android:id="@+id/w_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Восход"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@id/r_gl"
-        app:layout_constraintStart_toEndOf="@id/w_3"
-        app:layout_constraintTop_toBottomOf="@id/w_degrees" />
-    <!--/Headers-->
+        <TextView
+            android:id="@+id/w_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Восход"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/r_gl"
+            app:layout_constraintStart_toEndOf="@id/w_3"
+            app:layout_constraintTop_toBottomOf="@id/w_degrees" />
+        <!--/Headers-->
 
-    <TextView
-        android:id="@+id/w_1_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/w_wind_v"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/w_1"
-        app:layout_constraintTop_toBottomOf="@id/w_1" />
+        <TextView
+            android:id="@+id/w_1_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/w_wind_v"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/w_1"
+            app:layout_constraintTop_toBottomOf="@id/w_1" />
 
-    <TextView
-        android:id="@+id/w_2_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/w_humidity"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/w_2"
-        app:layout_constraintTop_toBottomOf="@id/w_2" />
+        <TextView
+            android:id="@+id/w_2_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/w_humidity"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/w_2"
+            app:layout_constraintTop_toBottomOf="@id/w_2" />
 
-    <TextView
-        android:id="@+id/w3_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/w_pressure"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/w_3"
-        app:layout_constraintTop_toBottomOf="@id/w_3" />
+        <TextView
+            android:id="@+id/w3_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/w_pressure"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/w_3"
+            app:layout_constraintTop_toBottomOf="@id/w_3" />
 
-    <TextView
-        android:id="@+id/w4_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="6:43"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/w_4"
-        app:layout_constraintTop_toBottomOf="@id/w_4" />
+        <TextView
+            android:id="@+id/w4_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6:43"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/w_4"
+            app:layout_constraintTop_toBottomOf="@id/w_4" />
+
+        <Button
+            android:id="@+id/w_curr_pos"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Get weather for current location"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/l_gl"
+            app:layout_constraintTop_toBottomOf="@id/w_degrees"
+            />
 
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="12dp"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintStart_toStartOf="@id/l_gl"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/w3_info">-->
+        <!--    <LinearLayout-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="0dp"-->
+        <!--        android:layout_marginStart="16dp"-->
+        <!--        android:layout_marginTop="12dp"-->
+        <!--        android:orientation="vertical"-->
+        <!--        app:layout_constraintStart_toStartOf="@id/l_gl"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/w3_info">-->
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginTop="12dp"-->
-<!--            android:orientation="horizontal">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_marginTop="12dp"-->
+        <!--            android:orientation="horizontal">-->
 
-<!--            <TextView-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_weight="4"-->
-<!--                android:text="Sunday, 16"-->
-<!--                android:textSize="18sp" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_weight="4"-->
+        <!--                android:text="Sunday, 16"-->
+        <!--                android:textSize="18sp" />-->
 
-<!--            <ImageView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_weight="1"-->
-<!--                android:src="@drawable/location_on_24" />-->
+        <!--            <ImageView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:src="@drawable/location_on_24" />-->
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:text="+26°"-->
-<!--                android:textSize="18sp"-->
-<!--                android:textStyle="bold" />-->
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:gravity="center"-->
+        <!--                android:text="+26°"-->
+        <!--                android:textSize="18sp"-->
+        <!--                android:textStyle="bold" />-->
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:text="+26°"-->
-<!--                android:textSize="18sp" />-->
-<!--        </LinearLayout>-->
-<!--    </LinearLayout>-->
-<!--    -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_forecast"
-        android:layout_height="0dp"
-        android:layout_width="0dp"
-        app:layout_constraintStart_toStartOf="@id/l_gl"
-        app:layout_constraintEnd_toEndOf="@id/r_gl"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/w_1_info"
-        android:layout_marginTop="30dp"
-        />
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginEnd="16dp"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:gravity="center"-->
+        <!--                android:text="+26°"-->
+        <!--                android:textSize="18sp" />-->
+        <!--        </LinearLayout>-->
+        <!--    </LinearLayout>-->
+        <!--    -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_forecast"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="@id/l_gl"
+            app:layout_constraintEnd_toEndOf="@id/r_gl"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/w_1_info"
+            android:layout_marginTop="30dp"
+            />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/l_gl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/l_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/r_gl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/r_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -16,7 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class WeatherViewModel(private val listener: IShowToast) : ViewModel() {
+class WeatherViewModel(private val listener: IShowToast?) : ViewModel() {
     private val _weatherData = MutableLiveData<WeatherModel>()
     private val TAG: String = "DEBUG_TAG"
     val weatherData: LiveData<WeatherModel> get() = _weatherData
@@ -37,13 +37,13 @@ class WeatherViewModel(private val listener: IShowToast) : ViewModel() {
 //        coroutineScope.launch {
         val rm = RetrofitModule().weatherApi
 
-        rm.getData(cityname, RetrofitModule.API_KEY).enqueue(object : Callback<WeatherModel> {
+        rm.getWeatherByCity(cityname, apiKey = RetrofitModule.API_KEY).enqueue(object : Callback<WeatherModel> {
             override fun onResponse(
                 call: Call<WeatherModel>,
                 response: Response<WeatherModel>
             ) {
                 if (response.code() == 404) {
-                    listener.onShowToast(
+                    listener?.onShowToast(
                         "Possibly, the city name is incorrect. Please, try again",
                         Toast.LENGTH_LONG
                     )
@@ -56,10 +56,37 @@ class WeatherViewModel(private val listener: IShowToast) : ViewModel() {
 
             override fun onFailure(call: Call<WeatherModel>, t: Throwable) {
                 Log.d(TAG, t.message.toString())
-                listener.onShowToast("Something went wrong.", Toast.LENGTH_LONG)
+                listener?.onShowToast("Something went wrong.", Toast.LENGTH_LONG)
             }
         })
 //        }
+    }
+
+    fun loadData(lat: Double, lon: Double){
+        val rm = RetrofitModule().weatherApi
+
+        rm.getWeatherByCoordinates(lat, lon, RetrofitModule.API_KEY).enqueue(object : Callback<WeatherModel> {
+            override fun onResponse(
+                call: Call<WeatherModel>,
+                response: Response<WeatherModel>
+            ) {
+                if (response.code() == 404) {
+                    listener?.onShowToast(
+                        "Possibly, the city name is incorrect. Please, try again",
+                        Toast.LENGTH_LONG
+                    )
+                }
+                if (response.isSuccessful) {
+                    _weatherData.value = response.body()
+                    TimeHelper.CITY_OFFSET = _weatherData.value?.city?.timezone
+                }
+            }
+
+            override fun onFailure(call: Call<WeatherModel>, t: Throwable) {
+                Log.d(TAG, t.message.toString())
+                listener?.onShowToast("Something went wrong.", Toast.LENGTH_LONG)
+            }
+        })
     }
 }
 

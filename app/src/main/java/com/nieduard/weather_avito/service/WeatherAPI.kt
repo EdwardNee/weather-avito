@@ -15,8 +15,17 @@ interface WeatherAPI {
      * forecast/daily?q={CITY_NAME}&appid={API_KEY}
      */
     @GET("forecast/daily")
-    fun getData(
+    fun getWeatherByCity(
         @Query("q") cityname: String,
+        @Query("cnt") cnt: Int = 8,
         @Query("appid") apiKey: String
     ): Call<WeatherModel>
+
+
+    @GET("forecast/daily")
+    fun getWeatherByCoordinates(
+        @Query("lat") lat: Double,
+        @Query("lon") lon: Double,
+        @Query("appid") apiKey: String
+    ) : Call<WeatherModel>
 }
