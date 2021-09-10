@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">weather-avito</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="w_degree">%d°</string>
+    <string name="w_degree">%d°C</string>
     <string name="w_location">Tap to choose location</string>
-    <string name="w_humidity">%s</string>
+    <string name="str_val">%s</string>
     <string name="w_pressure">%d hPa</string>
-    <string name="w_wind_v">%d м/с</string>
+    <string name="w_wind_v">%d m/s</string>
+    <string name="str_wind">WIND</string>
+    <string name="str_humidity">HUMIDITY</string>
+    <string name="str_pressure">PRESSURE</string>
+    <string name="str_sunrise">SUNRISE</string>
+    <string name="str_sunset">SUNSET</string>
+    <string name="str_pop">PROBABILITY OF PRECIPITATION</string>
+    <string name="week_forecast">WEEK FORECAST</string>
 </resources>

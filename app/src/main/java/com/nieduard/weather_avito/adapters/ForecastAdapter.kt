@@ -1,6 +1,5 @@
 package com.nieduard.weather_avito.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -13,7 +12,8 @@ import com.nieduard.weather_avito.model.Lst
 import com.nieduard.weather_avito.utils.TimeHelper
 import kotlin.math.roundToInt
 
-class ForecastAdapter : ListAdapter<Lst, ForecastViewHolder>(ForecastDiffCallback()) {
+class ForecastAdapter(private val onClickCard: (item: Lst) -> Unit) :
+    ListAdapter<Lst, ForecastViewHolder>(ForecastDiffCallback()) {
     private var layoutInflater: LayoutInflater? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForecastViewHolder {
@@ -22,28 +22,34 @@ class ForecastAdapter : ListAdapter<Lst, ForecastViewHolder>(ForecastDiffCallbac
 
         val holderBinding: ViewHolderWeatherBinding =
             DataBindingUtil.inflate(layoutInflater!!, R.layout.view_holder_weather, parent, false)
-
-        Log.d("TAG_HOLDER", holderBinding.toString())
         return ForecastViewHolder(holderBinding)
     }
 
     override fun onBindViewHolder(holder: ForecastViewHolder, position: Int) {
         val item = getItem(position)
-        holder.onBind(item)
+        holder.onBind(item, onClickCard)
     }
 }
 
 class ForecastViewHolder(private val holderBinding: ViewHolderWeatherBinding) :
     RecyclerView.ViewHolder(holderBinding.root) {
 
-    fun onBind(item: Lst) {
-        holderBinding.holderDate.text = TimeHelper.CITY_OFFSET?.let {
-            TimeHelper.dateFromUnix(
-                item.dt,
-                it, "dd MMM, EEE"
-            )
-        }
-        holderBinding.holderDegree.text = (item.temp.day - 273.15).roundToInt().toString()
+    fun onBind(item: Lst, onClickCard: (item: Lst) -> Unit) {
+//        Glide.with(holderBinding.holderImage.context)
+//            .load("http://developer.alexanderklimov.ru/android/images/android_cat.jpg")
+//            .into(holderBinding.holderImage)
+        holderBinding.holderDate.text =
+            holderBinding.root.context.getString(R.string.str_val, TimeHelper.CITY_OFFSET?.let {
+                TimeHelper.dateFromUnix(
+                    item.dt,
+                    it, "EEE, dd MMM"
+                )
+            })
+        holderBinding.holderDegree.text = holderBinding.root.context.getString(
+            R.string.w_degree,
+            (item.temp.day - 273.15).roundToInt()
+        )
+        holderBinding.root.setOnClickListener { onClickCard(item) }
     }
 }
 

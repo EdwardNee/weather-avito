@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/component_bottom_sheet"
+        tools:context="views.DayDetailBottomSheet">
+
+        <TextView
+            android:id="@+id/d_morn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/w_degree"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/d_day"
+            app:layout_constraintStart_toStartOf="@id/l_gl"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_rule"
+            android:layout_marginTop="20dp"
+            app:drawableTopCompat="@drawable/morn" />
+
+        <TextView
+            android:id="@+id/d_day"
+            android:text="@string/w_degree"
+            android:textSize="20sp"
+            app:drawableTopCompat="@drawable/day"
+            app:layout_constraintTop_toTopOf="@id/d_morn"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/d_morn"
+            app:layout_constraintEnd_toStartOf="@id/d_night"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/d_night"
+            android:text="@string/w_degree"
+            android:textSize="20sp"
+            app:drawableTopCompat="@drawable/moon"
+            app:layout_constraintTop_toTopOf="@id/d_morn"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/d_day"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/d_text_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/d_morn"
+            app:layout_constraintStart_toStartOf="@id/l_gl"
+            app:layout_constraintEnd_toEndOf="@id/r_gl"
+            android:text="@string/str_val"
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/horizontal_rule"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/horizontal_rule"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/d_wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_wind"
+            android:textSize="15sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="@id/h_gl"
+            app:layout_constraintStart_toStartOf="@id/l_gl"
+            app:layout_constraintTop_toBottomOf="@id/d_text_desc" />
+
+        <TextView
+            android:id="@+id/d_wind_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:text="@string/w_wind_v"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_wind"
+            app:layout_constraintEnd_toEndOf="@id/d_wind"
+            app:layout_constraintStart_toStartOf="@id/d_wind"
+            app:layout_constraintTop_toBottomOf="@id/d_wind" />
+
+        <TextView
+            android:id="@+id/d_humid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_humidity"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/r_gl"
+            app:layout_constraintStart_toStartOf="@id/h_gl"
+            app:layout_constraintTop_toTopOf="@id/d_wind" />
+
+        <TextView
+            android:id="@+id/d_humid_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:text="@string/str_val"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_humidity"
+            app:layout_constraintStart_toStartOf="@id/d_humid"
+            app:layout_constraintTop_toBottomOf="@id/d_humid" />
+
+        <TextView
+            android:id="@+id/d_sunr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/str_sunrise"
+            app:layout_constraintEnd_toEndOf="@id/h_gl"
+            app:layout_constraintStart_toStartOf="@id/l_gl"
+            app:layout_constraintTop_toBottomOf="@id/d_wind_tv" />
+
+        <TextView
+            android:id="@+id/d_sunr_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:text="@string/str_val"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_sunrise"
+            app:layout_constraintEnd_toEndOf="@id/d_sunr"
+            app:layout_constraintStart_toStartOf="@id/d_sunr"
+            app:layout_constraintTop_toBottomOf="@id/d_sunr" />
+
+        <TextView
+            android:id="@+id/d_suns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_sunset"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/d_sunr"
+            app:layout_constraintEnd_toEndOf="@id/r_gl"
+            app:layout_constraintEnd_toStartOf="@id/r_gl"
+            app:layout_constraintStart_toEndOf="@id/h_gl"
+            app:layout_constraintStart_toStartOf="@id/h_gl"
+            app:layout_constraintTop_toTopOf="@id/d_sunr"
+            />
+
+        <TextView
+            android:id="@+id/d_suns_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/d_suns"
+            android:text="@string/str_val"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_sunset"
+            android:drawablePadding="8dp"
+            app:layout_constraintStart_toStartOf="@id/d_suns"
+            app:layout_constraintEnd_toEndOf="@id/d_suns"
+            />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@drawable/line_shape"
+            app:layout_constraintTop_toBottomOf="@id/d_sunr_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="30dp"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/l_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/r_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

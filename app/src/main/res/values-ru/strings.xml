@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">weather-avito</string>
+    <string name="w_degree">%d°C</string>
+    <string name="w_location">Нажмите, для выбора города</string>
+    <string name="str_val">%s</string>
+    <string name="w_pressure">%d hPa</string>
+    <string name="w_wind_v">%d м/с</string>
+    <string name="str_wind">ВЕТЕР</string>
+    <string name="str_humidity">ВЛАЖНОСТЬ</string>
+    <string name="str_pressure">ДАВЛЕНИЕ</string>
+    <string name="str_sunrise">ВОСХОД СОЛНЦА</string>
+    <string name="str_sunset">ЗАХОД СОЛНЦА</string>
+    <string name="str_pop">ВЕРОЯТНОСТЬ ОСАДКОВ</string>
+    <string name="week_forecast">ПРОГНОЗ НА НЕДЕЛЮ</string>
+</resources>

@@ -1,6 +1,5 @@
 package com.nieduard.weather_avito.model
 
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -18,4 +17,4 @@ data class Lst(
     val sunset: Int,
     val temp: Temp,
     val weather: List<Weather>
-)
+) : java.io.Serializable
