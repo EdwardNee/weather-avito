@@ -194,7 +194,7 @@ class WeatherFragment : Fragment() {
             TimeHelper.dateFromUnix(currentDay.sunset, data.city.timezone, "HH:mm")
         )
         binding?.w6Info?.text =
-            context?.getString(R.string.str_val, (currentDay.pop * 100).toString() + "%")
+            context?.getString(R.string.str_val, (currentDay.pop * 100).roundToInt().toString() + "%")
         binding?.wDescription?.text = context?.getString(
             R.string.str_val,
             "${currentDay.weather[0].description} ${(currentDay.temp.day - 273.15).roundToInt()} /" +
