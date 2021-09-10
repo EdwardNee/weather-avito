@@ -12,4 +12,7 @@
     <string name="str_sunset">ЗАХОД СОЛНЦА</string>
     <string name="str_pop">ВЕРОЯТНОСТЬ ОСАДКОВ</string>
     <string name="week_forecast">ПРОГНОЗ НА НЕДЕЛЮ</string>
+    <string name="str_help1">Или нажмите на</string>
+    <string name="str_hint">Введите город</string>
+    <string name="str_help2">для погоды в геопозиции</string>
 </resources>

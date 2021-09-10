@@ -10,37 +10,34 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg"
         tools:context=".views.WeatherFragment">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_search_loc"
-            style="@style/Widget.Design.TextInputLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:endIconDrawable="@drawable/search_24"
-            app:endIconMode="custom"
-            app:layout_constraintBottom_toBottomOf="@id/w_location"
-            app:layout_constraintEnd_toStartOf="@id/r_gl"
-            app:layout_constraintStart_toEndOf="@id/l_gl"
-            app:layout_constraintTop_toTopOf="@id/w_location">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/w_degrees"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:text="@string/w_degree"
+            android:textColor="@color/white"
             android:textSize="60sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/p_gl"
+            app:layout_constraintEnd_toEndOf="@id/r_gl"
             app:layout_constraintStart_toStartOf="@id/l_gl"
             app:layout_constraintTop_toTopOf="@id/p_gl" />
+
+        <TextView
+            android:id="@+id/w_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_val"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/w_degrees"
+            app:layout_constraintStart_toStartOf="@id/w_degrees"
+            app:layout_constraintTop_toBottomOf="@id/w_degrees" />
 
         <TextView
             android:id="@+id/w_time"
@@ -48,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/str_val"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@id/r_gl"
             app:layout_constraintStart_toStartOf="@id/l_gl"
@@ -55,53 +53,13 @@
 
         <TextView
             android:id="@+id/w_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/w_location"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            app:drawableLeftCompat="@drawable/location_on_24"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@id/w_time"
             app:layout_constraintStart_toStartOf="@id/w_time"
             app:layout_constraintTop_toBottomOf="@id/w_time"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/help1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="or tap"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/imageLoc"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/w_location" />
-
-        <ImageView
-            android:id="@+id/imageLoc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/search_24"
-            app:layout_constraintBottom_toBottomOf="@id/help1"
-            app:layout_constraintEnd_toStartOf="@id/help2"
-            app:layout_constraintStart_toEndOf="@id/help1"
-            app:layout_constraintTop_toTopOf="@id/help1" />
-
-        <TextView
-            android:id="@+id/help2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="to get weather in location"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/imageLoc"
-            app:layout_constraintStart_toEndOf="@id/imageLoc"
-            app:layout_constraintTop_toBottomOf="@id/w_location"
-
-            app:layout_constraintTop_toTopOf="@id/imageLoc" />
 
         <!--Headers-->
         <TextView
@@ -110,6 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/str_wind"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/l_gl"
             app:layout_constraintTop_toBottomOf="@id/vv_2_3" />
@@ -120,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/str_humidity"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/l_gl"
             app:layout_constraintTop_toBottomOf="@id/vv_1_5" />
@@ -130,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/str_pressure"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/h_gl"
             app:layout_constraintTop_toBottomOf="@id/vv_2_3" />
@@ -139,6 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_sunrise"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/l_gl"
             app:layout_constraintTop_toBottomOf="@id/vv_upper" />
@@ -148,6 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_sunset"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/h_gl"
             app:layout_constraintTop_toBottomOf="@id/vv_upper" />
@@ -158,6 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/str_pop"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/h_gl"
             app:layout_constraintTop_toBottomOf="@id/vv_1_5" />
@@ -198,6 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/w_wind_v"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/w_1"
@@ -208,6 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_val"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/w_2"
@@ -218,6 +184,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/w_pressure"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/w_3"
@@ -228,16 +195,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_val"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/w_4"
             app:layout_constraintTop_toBottomOf="@id/w_4" />
+
 
         <TextView
             android:id="@+id/w5_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_val"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/w_5"
@@ -248,6 +218,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_val"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/w_6"
@@ -257,63 +228,10 @@
             android:id="@+id/w_curr_pos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get weather for current location"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintStart_toEndOf="@id/l_gl"
             app:layout_constraintTop_toBottomOf="@id/w_degrees" />
-
-
-        <!--    <LinearLayout-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="0dp"-->
-        <!--        android:layout_marginStart="16dp"-->
-        <!--        android:layout_marginTop="12dp"-->
-        <!--        android:orientation="vertical"-->
-        <!--        app:layout_constraintStart_toStartOf="@id/l_gl"-->
-        <!--        app:layout_constraintTop_toBottomOf="@id/w3_info">-->
-
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:layout_marginTop="12dp"-->
-        <!--            android:orientation="horizontal">-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="0dp"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:layout_weight="4"-->
-        <!--                android:text="Sunday, 16"-->
-        <!--                android:textSize="18sp" />-->
-
-        <!--            <ImageView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:layout_weight="1"-->
-        <!--                android:src="@drawable/location_on_24" />-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_weight="1"-->
-        <!--                android:gravity="center"-->
-        <!--                android:text="+26°"-->
-        <!--                android:textSize="18sp"-->
-        <!--                android:textStyle="bold" />-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:layout_marginEnd="16dp"-->
-        <!--                android:layout_weight="1"-->
-        <!--                android:gravity="center"-->
-        <!--                android:text="+26°"-->
-        <!--                android:textSize="18sp" />-->
-        <!--        </LinearLayout>-->
-        <!--    </LinearLayout>-->
-        <!--    -->
 
         <TextView
             android:id="@+id/header_rv_forecast"
@@ -321,17 +239,87 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="@string/week_forecast"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/w_curr_pos" />
+            app:layout_constraintTop_toBottomOf="@id/w_description" />
+
+        <ImageView
+            android:id="@+id/blind"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_forecast"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             app:layout_constraintEnd_toEndOf="@id/r_gl"
             app:layout_constraintStart_toStartOf="@id/l_gl"
             app:layout_constraintTop_toBottomOf="@id/header_rv_forecast" />
+
+        <TextView
+            android:id="@+id/help1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/str_help1"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@id/imageLoc"
+            app:layout_constraintEnd_toEndOf="@id/imageLoc"
+            app:layout_constraintStart_toStartOf="@id/imageLoc" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_search_loc"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:hint="@string/str_hint"
+            android:textColor="@color/white"
+            app:endIconDrawable="@drawable/search_24"
+            app:endIconMode="custom"
+            app:layout_constraintBottom_toBottomOf="@id/w_location"
+            app:layout_constraintEnd_toStartOf="@id/r_gl"
+            app:layout_constraintStart_toEndOf="@id/l_gl"
+            app:layout_constraintTop_toBottomOf="@id/imageLoc"
+            app:layout_goneMarginTop="100dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/imageLoc"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/geopos"
+            app:layout_constraintEnd_toEndOf="@id/r_gl"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/help2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/str_help2"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="@id/imageLoc"
+            app:layout_constraintStart_toStartOf="@id/imageLoc"
+            app:layout_constraintTop_toBottomOf="@id/imageLoc" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/l_gl"
@@ -352,7 +340,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.333" />
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.18" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/r_gl"
@@ -360,7 +354,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_end="16dp" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

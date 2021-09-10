@@ -9,7 +9,8 @@ import retrofit2.create
  */
 class RetrofitModule {
     companion object {
-        const val API_KEY = "API_KEY"
+        //Must not be in public access. Added to check the task.
+        const val API_KEY = "0971c9f9ed8206a186292d41b88e5961"
         const val BASE_URL =
             "https://api.openweathermap.org/data/2.5/"
     }

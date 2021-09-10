@@ -1,10 +1,9 @@
 package com.nieduard.weather_avito
 
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -53,8 +52,7 @@ class MainActivity : AppCompatActivity(), IShowToast, IDaySelected {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 //get the location
 //                if (locationViewModel.location.value == null)
-                    locationViewModel.initLocation(LocationPermissionHelper.getLocation(this))
-                Log.d("main_act_tag", "HEHE")
+                locationViewModel.initLocation(LocationPermissionHelper.getLocation(this))
             }
         }
     }
@@ -67,7 +65,7 @@ class MainActivity : AppCompatActivity(), IShowToast, IDaySelected {
             FragmentSwitch.ADD -> {
                 supportFragmentManager.beginTransaction().apply {
                     add(R.id.wrapper_main, fragment)
-                   // addToBackStack(null)
+                    // addToBackStack(null)
                     commit()
                 }
             }

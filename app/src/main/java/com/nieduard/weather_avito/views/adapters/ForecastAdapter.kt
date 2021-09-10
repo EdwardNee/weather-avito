@@ -1,11 +1,13 @@
-package com.nieduard.weather_avito.adapters
+package com.nieduard.weather_avito.views.adapters
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.nieduard.weather_avito.R
 import com.nieduard.weather_avito.databinding.ViewHolderWeatherBinding
 import com.nieduard.weather_avito.model.Lst
@@ -35,9 +37,6 @@ class ForecastViewHolder(private val holderBinding: ViewHolderWeatherBinding) :
     RecyclerView.ViewHolder(holderBinding.root) {
 
     fun onBind(item: Lst, onClickCard: (item: Lst) -> Unit) {
-//        Glide.with(holderBinding.holderImage.context)
-//            .load("http://developer.alexanderklimov.ru/android/images/android_cat.jpg")
-//            .into(holderBinding.holderImage)
         holderBinding.holderDate.text =
             holderBinding.root.context.getString(R.string.str_val, TimeHelper.CITY_OFFSET?.let {
                 TimeHelper.dateFromUnix(
@@ -50,6 +49,14 @@ class ForecastViewHolder(private val holderBinding: ViewHolderWeatherBinding) :
             (item.temp.day - 273.15).roundToInt()
         )
         holderBinding.root.setOnClickListener { onClickCard(item) }
+        holderBinding.holderFeel.text = holderBinding.root.context.getString(
+            R.string.w_degree,
+            (item.feels_like.day - 273.15).roundToInt()
+        )
+
+        Glide.with(holderBinding.root)
+            .load(Uri.parse("https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png"))
+            .into(holderBinding.holderImage)
     }
 }
 

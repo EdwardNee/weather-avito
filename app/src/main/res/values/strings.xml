@@ -12,4 +12,7 @@
     <string name="str_sunset">SUNSET</string>
     <string name="str_pop">PROBABILITY OF PRECIPITATION</string>
     <string name="week_forecast">WEEK FORECAST</string>
+    <string name="str_help1">Or tap</string>
+    <string name="str_hint">Enter the location</string>
+    <string name="str_help2">to get weather in location</string>
 </resources>

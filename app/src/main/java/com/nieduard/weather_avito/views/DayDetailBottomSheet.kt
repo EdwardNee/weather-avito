@@ -1,7 +1,6 @@
 package com.nieduard.weather_avito.views
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,18 +12,9 @@ import com.nieduard.weather_avito.model.Lst
 import com.nieduard.weather_avito.utils.TimeHelper
 import kotlin.math.roundToInt
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DayDetailBottomSheet.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DayDetailBottomSheet : BottomSheetDialogFragment() {
 
     private var binding: FragmentDayDetailBinding? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +27,19 @@ class DayDetailBottomSheet : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val dayInfo = arguments?.getSerializable(PARAM_DAY) as? Lst ?: return
+        bindUI(dayInfo)
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
+    /**
+     * Binds UI with data, loaded from openWeatherMap api for exact day.
+     */
+    private fun bindUI(dayInfo: Lst) {
         binding?.dMorn?.text =
             context?.getString(R.string.w_degree, (dayInfo.temp.morn - 273.15).roundToInt())
         binding?.dDay?.text =
@@ -47,7 +49,7 @@ class DayDetailBottomSheet : BottomSheetDialogFragment() {
         binding?.dTextDesc?.text =
             context?.getString(R.string.str_val, dayInfo.weather[0].description)
         binding?.dWindTv?.text = context?.getString(R.string.w_wind_v, dayInfo.speed.toInt())
-        binding?.dHumidTv?.text = context?.getString(R.string.str_val, dayInfo.humidity.toString())
+        binding?.dHumidTv?.text = context?.getString(R.string.str_val, "${dayInfo.humidity}%")
         binding?.dSunrTv?.text = context?.getString(
             R.string.str_val,
             TimeHelper.dateFromUnix(dayInfo.sunrise, TimeHelper.CITY_OFFSET!!, "HH:mm")
@@ -56,11 +58,6 @@ class DayDetailBottomSheet : BottomSheetDialogFragment() {
             R.string.str_val,
             TimeHelper.dateFromUnix(dayInfo.sunset, TimeHelper.CITY_OFFSET!!, "HH:mm")
         )
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
     }
 
     companion object {
