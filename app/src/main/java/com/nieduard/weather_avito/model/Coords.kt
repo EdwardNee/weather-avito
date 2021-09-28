@@ -1,9 +1,8 @@
 package com.nieduard.weather_avito.model
 
-import android.content.Context
+import javax.inject.Inject
 
-class Coords(
+class Coords @Inject constructor(
     var lat: Double,
     var lon: Double
-){
-}
+)

@@ -2,6 +2,7 @@ package com.nieduard.weather_avito
 
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -10,12 +11,14 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.nieduard.weather_avito.helpers.LocationPermissionHelper
 import com.nieduard.weather_avito.model.Lst
+import com.nieduard.weather_avito.model.WeatherModel
 import com.nieduard.weather_avito.modelfactories.LocationModelFactory
 import com.nieduard.weather_avito.utils.IDaySelected
 import com.nieduard.weather_avito.utils.IShowToast
 import com.nieduard.weather_avito.viewmodels.LocationViewModel
 import com.nieduard.weather_avito.views.DayDetailBottomSheet
 import com.nieduard.weather_avito.views.WeatherFragment
+import javax.inject.Inject
 
 enum class FragmentSwitch {
     REPLACE, ADD
@@ -23,9 +26,11 @@ enum class FragmentSwitch {
 
 class MainActivity : AppCompatActivity(), IShowToast, IDaySelected {
 
+    @Inject
+    lateinit var weatherModel: WeatherModel
     private lateinit var locationViewModel: LocationViewModel
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
-
+    private lateinit var appComponent: AppComponent
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,6 +44,12 @@ class MainActivity : AppCompatActivity(), IShowToast, IDaySelected {
 
         LocationPermissionHelper.requestPermissions(this)
 //        getLastLocation()
+        appComponent = DaggerAppComponent.create()
+        appComponent.inject(this)
+//        weatherModel = appComponent.weatherModel
+
+        Log.d("TAG_DAGGER", this::weatherModel.isInitialized.toString())
+
     }
 
 

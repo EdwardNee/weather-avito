@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.nieduard.weather_avito.DaggerAppComponent
 import com.nieduard.weather_avito.R
 import com.nieduard.weather_avito.views.adapters.ForecastAdapter
 import com.nieduard.weather_avito.databinding.FragmentWeatherBinding
@@ -26,11 +28,13 @@ import com.nieduard.weather_avito.model.Coords
 import com.nieduard.weather_avito.model.WeatherModel
 import com.nieduard.weather_avito.modelfactories.LocationModelFactory
 import com.nieduard.weather_avito.modelfactories.WeatherModelFactory
+import com.nieduard.weather_avito.service.WeatherAPI
 import com.nieduard.weather_avito.utils.IDaySelected
 import com.nieduard.weather_avito.utils.IShowToast
 import com.nieduard.weather_avito.utils.TimeHelper
 import com.nieduard.weather_avito.viewmodels.LocationViewModel
 import com.nieduard.weather_avito.viewmodels.WeatherViewModel
+import javax.inject.Inject
 import kotlin.math.roundToInt
 
 class WeatherFragment : Fragment() {
@@ -39,14 +43,20 @@ class WeatherFragment : Fragment() {
 
     private var binding: FragmentWeatherBinding? = null
 
-    private val viewModel: WeatherViewModel by viewModels { WeatherModelFactory(showToastListener) }
+    private val viewModel: WeatherViewModel by viewModels { WeatherModelFactory(showToastListener, retrofitModule) }
     private lateinit var locationViewModel: LocationViewModel
 
     private var showToastListener: IShowToast? = null
     private var daySelectedListener: IDaySelected? = null
     private var played = false  //Parameter to play animation just once
 
+    //TODO How to fix that not to put into Factory parameters
+    @Inject
+    lateinit var retrofitModule: WeatherAPI
+
     override fun onAttach(context: Context) {
+        val appComponent = DaggerAppComponent.create()
+        appComponent.inject(this)
         super.onAttach(context)
         if (context is IShowToast)
             showToastListener = context
@@ -57,6 +67,7 @@ class WeatherFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("TAG_DAGGER_T", this::retrofitModule.isInitialized.toString())
         locationViewModel =
             ViewModelProvider(this, LocationModelFactory()).get(LocationViewModel::class.java)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())

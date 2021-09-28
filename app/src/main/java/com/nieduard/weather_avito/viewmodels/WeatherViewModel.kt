@@ -5,8 +5,9 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.nieduard.weather_avito.NetworkModule
 import com.nieduard.weather_avito.model.WeatherModel
-import com.nieduard.weather_avito.service.RetrofitModule
+import com.nieduard.weather_avito.service.WeatherAPI
 import com.nieduard.weather_avito.utils.IShowToast
 import com.nieduard.weather_avito.utils.TimeHelper
 import retrofit2.Call
@@ -14,7 +15,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class WeatherViewModel(private val listener: IShowToast?) : ViewModel() {
+class WeatherViewModel(private val listener: IShowToast?, private val retrofitModule: WeatherAPI) : ViewModel() {
     private val _weatherData = MutableLiveData<WeatherModel>()
     private val tag: String = "DEBUG_TAG"
     private var locale: String = when (Locale.getDefault().displayLanguage.lowercase()) {
@@ -23,13 +24,13 @@ class WeatherViewModel(private val listener: IShowToast?) : ViewModel() {
     }
     val weatherData: LiveData<WeatherModel> get() = _weatherData
 
+
     /**
      * Tries to load weather data from openweathermap api in [cityName] city.
      */
     fun loadData(cityName: String) {
-        val rm = RetrofitModule().weatherApi
-
-        rm.getWeatherByCity(cityName, RetrofitModule.API_KEY, locale)
+//        val rm = RetrofitModule().weatherApi
+        retrofitModule.getWeatherByCity(cityName, NetworkModule.API_KEY, locale)
             .enqueue(object : Callback<WeatherModel> {
                 override fun onResponse(
                     call: Call<WeatherModel>,
@@ -55,9 +56,7 @@ class WeatherViewModel(private val listener: IShowToast?) : ViewModel() {
     }
 
     fun loadData(lat: Double, lon: Double) {
-        val rm = RetrofitModule().weatherApi
-
-        rm.getWeatherByCoordinates(lat, lon, RetrofitModule.API_KEY, locale)
+        retrofitModule.getWeatherByCoordinates(lat, lon, NetworkModule.API_KEY, locale)
             .enqueue(object : Callback<WeatherModel> {
                 override fun onResponse(
                     call: Call<WeatherModel>,

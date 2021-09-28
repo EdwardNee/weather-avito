@@ -1,9 +1,10 @@
 package com.nieduard.weather_avito.model
 
 import kotlinx.serialization.Serializable
+import javax.inject.Inject
 
 @Serializable
-data class Lst(
+class Lst @Inject constructor(
     val clouds: Int,
     val deg: Int,
     val dt: Int,

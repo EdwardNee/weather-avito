@@ -1,9 +1,10 @@
 package com.nieduard.weather_avito.model
 
 import kotlinx.serialization.Serializable
+import javax.inject.Inject
 
 @Serializable
-data class CityX(
+class CityX @Inject constructor(
     val coord: Coord,
     val country: String,
     val id: Int,
